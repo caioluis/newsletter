@@ -5,9 +5,8 @@ use axum::{
 };
 use std::net::SocketAddr;
 
-pub async fn run() -> Result<(), std::io::Error> {
-    let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
-    axum::Server::bind(&addr)
+pub async fn run(address: SocketAddr) -> Result<(), std::io::Error> {
+    axum::Server::bind(&address)
         .serve(app().into_make_service())
         .await
         .unwrap();

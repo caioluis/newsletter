@@ -1,6 +1,6 @@
 use axum::body::Body;
 use hyper::Request;
-use newsletter::app;
+use newsletter::startup::app;
 use tower::ServiceExt;
 
 #[tokio::test]
@@ -27,10 +27,7 @@ async fn subscribe_returns_a_200_for_valid_form_data() {
         .header("Content-Type", "application/x-www-form-urlencoded")
         .body(body.into())
         .unwrap();
-
-    println!("request {:?}", request);
     let response = app().oneshot(request).await.unwrap();
-    println!("response {:?}", response);
 
     assert!(response.status().is_success())
 }
