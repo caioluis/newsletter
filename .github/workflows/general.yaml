@@ -14,7 +14,7 @@ env:
 
 jobs:
   test:
-    environment: Testing
+    environment: ${{ vars.Testing }}
     name: Test
     runs-on: ubuntu-latest
     services:
