@@ -19,12 +19,16 @@ reqwest = "0.11.22"
 serde = { version = "1.0.193", features = ["derive"] }
 tokio = { version = "1.32.0", features = ["full"] }
 tower = "0.4.13"
+uuid = { version = "1", features = ["v4"] }
+chrono = { version = "0.4.22", default-features = false, features = ["clock"] }
+dotenvy = "0.15.7"
 
 [dependencies.sqlx]
 version = "0.7"
 default-features = false
 features = [
     "runtime-tokio-rustls", 
+    "tls-rustls",
     "macros", 
     "postgres", 
     "uuid", 
