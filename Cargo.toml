@@ -12,9 +12,8 @@ path = "src/main.rs"
 name = "newsletter"
 
 [dependencies]
-axum = { version = "0.6.20", features = ["form"] }
+axum = { version = "0.7.1", features = ["form"] }
 config = "0.13.4"
-hyper = "0.14.27"
 reqwest = "0.11.22"
 serde = { version = "1.0.193", features = ["derive"] }
 tokio = { version = "1.32.0", features = ["full"] }
@@ -22,6 +21,10 @@ tower = "0.4.13"
 uuid = { version = "1", features = ["v4"] }
 chrono = { version = "0.4.22", default-features = false, features = ["clock"] }
 dotenvy = "0.15.7"
+tracing = { version = "0.1.40", features = ["log"] }
+tower-http = { version = "0.5.0", features = ["trace"] }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+hyper = "1.0.1"
 
 [dependencies.sqlx]
 version = "0.7"
